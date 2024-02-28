@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+<!--
+    XML Files (res/anim):
+        <INTERPOLATOR_NAME>_interpolator.xml - for custom interpolator
+        <ANIMATION_NAME>.xml - for custom animation
+-->
+</set>

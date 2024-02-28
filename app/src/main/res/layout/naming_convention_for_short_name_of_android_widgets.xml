@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+         Short Name of Android Widgets
+
+    (naming convention URLs)->
+                               1-     https://github.com/TreyCai/AndroidNamingConvention
+
+     Note: You should use more meaningful names than these short names unless you have two or more same kind of views in the same place.
+
+        aclock - AnalogClock
+        actv   - AutoCompleteTextView
+        btn    - Button
+        cal    - CalendarView
+        chb    - CheckBox
+        chtv   - CheckedTextView
+        chron  - Chronometer
+        dp     - DatePicker
+        edt    - EditText
+        explv  - ExpandableListView
+        fl     - FrameLayout
+        gl     - GridLayout
+        grv    - GridView
+        hsv    - HorizontalScrollView
+        imb    - ImageButton
+        ims    - ImageSwitcher
+        imv    - ImageView
+        ll     - LinearLayout
+        lsv    - ListView
+        ctlr   - MediaController
+        mactv  - MultiAutoCompleteTextView
+        np     - NumberPicker
+        pm     - PopupMenu
+        pw     - PopupWindow
+        pgb    - ProgressBar
+        rb     - RadioButton
+        rg     - RadioGroup
+        rtb    - RatingBar
+        rl     - RelativeLayout
+        rv     - RemoteViews
+        scv    - ScrollView
+        schv   - SearchView
+        skb    - SeekBar
+        sap    - ShareActionProvider
+        space  - Space
+        spn    - Spinner
+        stv    - StackView
+        sw     - Switch
+        tabh   - TabHost
+        tabc   - TabHost.TabSpec
+        tl     - TableLayout
+        tr     - TableRow
+        twg    - TabWidget
+        tclock - TextClock
+        tsw    - TextSwitcher
+        txv    - TextView
+        tp     - TimePicker
+        toast  - Toast
+        tgb    - ToggleButton
+        vdv    - VideoView
+        vf     - ViewFlipper
+        vsw    - ViewSwitcher
+
+    -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

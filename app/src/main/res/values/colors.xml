@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+<!--
+    values/colors.xml
+
+    (naming convention URLs)->
+                             1- https://github.com/TreyCai/AndroidNamingConvention
+
+    <color name="<THEME_NAME>_<COLOR_NAME>"><COLOR_VALUE></color>
+    For example:
+        <color name=”holo_blue_dark”>#ff0099cc</color>
+        <color name=”material_blue_500”>#5677fc</color>
+
+    If the color is not in the theme:
+        <color name="<COLOR_NAME>"><COLOR_VALUE></color>
+
+-->
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

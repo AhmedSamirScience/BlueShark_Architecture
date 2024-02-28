@@ -58,6 +58,18 @@
      Your apps colors palette likely wants to reuse the terminology of your design philosophy. Animations can range from modest (fade) to very exotic. Themes and styles already have a naming scheme that allows you to implicitly inherit properties.
      *********************************************************
 
+
+
+    Another Good Example: XML Files (res/layout)
+        activity_<ACTIVITY_NAME>.xml - for activity
+        dialog_<DIALOG_NAME>.xml - for dialog
+        list_item_<LIST_NAME>.xml - for list item in ListView
+        grid_item_<GRID_NAME>.xml - for grid item in GridView
+        fragment_<FRAGMENT_NAME>.xml - for fragment
+        layout_<LAYOUT_NAME>.xml - for re-useable layout
+        merge_<MERGE_NAME>.xml - for <merge> Tag only
+        widget_<WIDGET_NAME>.xml - for custom view
+        appwidget_<APPWIDGET_NAME>.xml - for app widget
  -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,5 +69,19 @@
      The proposed scheme currently does not yet support all resource types. For some resources this is because they are less frequently used and tend to be very varied (e.g. raw and assets). For other resources this is because they are a lot harder to generalize (e.g. themes/styles/colors/animations).
      Your apps colors palette likely wants to reuse the terminology of your design philosophy. Animations can range from modest (fade) to very exotic. Themes and styles already have a naming scheme that allows you to implicitly inherit properties.
      *********************************************************
+
+
+    Another Good Example: XML Files (res/drawable)
+         bmp_<BITMAP_NAME>.xml - for bitmap file
+         np_<NINE_PATCH_NAME>.xml - for nine-patch XML file
+         layer_<LAYER_LIST_NAME>.xml - for layer list
+         selector_<STATE_LIST_NAME>.xml - for state list
+         anim_<DRAWABLE_ANIMATION_NAME>.xml - for drawable animation
+         level_<LEVEL_LIST_NAME>.xml - for level list
+         trans_<TRANSITION_DRAWABLE_NAME>.xml - for transition drawable
+         inset_<INSET_DRAWABLE_NAME>.xml - for inset drawable
+         clip_<CLIP_DRAWABLE_NAME>.xml - for clip drawable
+         scale_<SCALE_DRAWABLE_NAME>.xml - for scale drawable
+         shape_<SHAPE_DRAWABLE_NAME>.xml - for shape drawable
   -->
  </vector>
