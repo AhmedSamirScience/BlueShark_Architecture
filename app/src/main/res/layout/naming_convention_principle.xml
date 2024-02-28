@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+ <!--
+                                       ************ naming_convention_principle for layouts ************
+
+    (naming convention URLs)->
+                               1- https://jeroenmols.com/blog/2016/03/07/resourcenaming/
+                               2- https://medium.com/mindorks/android-resource-naming-convention-42e4e8026614
+
+    Layouts are relatively simple, as there usually are only a few layouts per screen. Therefore the rule can be simplified to:
+
+    <WHAT>_<WHERE>
+    ***(e.g.)***
+    1- activity_main.xml
+
+    <WHAT>
+    ***(Description)***
+    Indicate what the resource actually represents, often a standard Android view class. Limited options per resource type.
+    (e.g. MainActivity -> activity)
+
+     ***(e.g. - Usage - Real Example)***
+     1- activity       - contentView for activity                           - activity_main: content view of the MainActivity
+     2- fragment       - view for a fragment                                - fragment_articledetail: view for the ArticleDetailFragment
+     3- view           - inflated by a custom view  -> e.g.(view_menu)      - view_menu: layout inflated by custom view class MenuView
+     4- item           - layout used in list/recycler/gridview              - item_article: list item in ArticleRecyclerView
+     5- layout         - layout reused using the include tag                - layout_actionbar_backbutton: layout for an actionbar with a backbutton (too simple to be a customview)
+
+
+    <WHERE>
+    Describe where it logically belongs in the app. Resources used in multiple screens use all, all others use the custom part of the Android view subclass they are in.
+    (e.g. MainActivity -> main, ArticleDetailFragment -> articledetail)
+
+     *********************************************************
+     Example of layout resource files
+     Component           - Class Name                          - Layout Name
+     Activity            - UserProfileActivity                 - activity_user_profile.xml
+     Fragment            - SignUpFragment                      - fragment_sign_up.xml
+     Dialog              - ChangePasswordDialog                - dialog_change_password.xml
+     adapterView item    - ....                                - item_person.xml
+     Partial layout      - Partial layout for MainActivity     - content_main.xml
+     *********************************************************
+
+
+     *********************************************************
+     Known limitations:
+     Screens need to have unique names:
+     To avoid collisions in the <WHERE> argument, View (like) classes must have unique names. Therefore you cannot have a “MainActivity” and a “MainFragment”, because the “Main” prefix would no longer uniquely identify one <WHERE>.
+
+     Refactoring not supported:
+     Changing class names does not change along resource names when refactoring. So if you rename “MainActivity” to “ContentActivity”, the layout “activity_main” won’t be renamed to “activity_content”. Hopefully Android Studio will one day add support for this.
+
+     Not all resource types supported:
+     The proposed scheme currently does not yet support all resource types. For some resources this is because they are less frequently used and tend to be very varied (e.g. raw and assets). For other resources this is because they are a lot harder to generalize (e.g. themes/styles/colors/animations).
+     Your apps colors palette likely wants to reuse the terminology of your design philosophy. Animations can range from modest (fade) to very exotic. Themes and styles already have a naming scheme that allows you to implicitly inherit properties.
+     *********************************************************
+
+ -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

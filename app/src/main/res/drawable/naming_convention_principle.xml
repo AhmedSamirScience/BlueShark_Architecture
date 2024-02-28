@@ -1,0 +1,73 @@
+<vector android:height="24dp" android:tint="#11A8FF"
+    android:viewportHeight="24" android:viewportWidth="24"
+    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+ <!--
+                                        ************ naming_convention_principle for drawables ************
+
+     (naming convention URLs)->
+                                1- https://jeroenmols.com/blog/2016/03/07/resourcenaming/
+                                2- https://medium.com/mindorks/android-resource-naming-convention-42e4e8026614
+
+    <WHERE>
+    Describe where it logically belongs in the app. Resources used in multiple screens use all, all others use the custom part of the Android view subclass they are in.
+    (e.g. MainActivity -> main, ArticleDetailFragment -> articledetail)
+
+    <DESCRIPTION>
+    Differentiate multiple elements in one screen.
+    (e.g. title)
+
+    <SIZE> (optional)
+    Either a precise size or size bucket. Optionally used for drawables and dimensions.
+    (e.g. 24dp, small))
+
+     The <WHAT> part for Drawables is irrelevant. So either we use <WHERE> to indicate where the drawable will be used:
+     <WHERE>_<DESCRIPTION>_<SIZE>
+
+     or all if the drawable is reused throughout the app:
+     all_<DESCRIPTION>_<SIZE>
+
+     Optionally you can add a <SIZE> argument, which can be an actual size “24dp” or a size qualifier “small”.
+
+     Examples:
+     1- articledetail_placeholder: placeholder in ArticleDetailFragment
+     2- all_infoicon: generic info icon
+     3- all_infoicon_large: large version of generic info icon
+     4- all_infoicon_24dp: 24dp version of generic info icon
+
+     Another example:
+     1- all_infoicon_small
+     2- main_background
+
+     Note: you can ignore the size of the drawable
+
+     *********************************************************
+     you can use <WHERE>_<WHAT>_<DESCRIPTION>
+     Examples:
+     1- menu_ic_home
+
+     asset type     - prefix         - example:
+     Action Bar     - ab_            - menu_ab_others
+     Button         - btn_           - menu_btn_others
+     Dialog         - dialog_        - menu_dialog_others
+     divider        - divider_       - menu_divider_others
+     Icon           - ic_            - menu_ic_others
+     Menu           - menu_          - menu_menu_submenu
+     Notification   - notification_  - menu_notification_others
+     *********************************************************
+
+
+
+     *********************************************************
+     Known limitations:
+     Screens need to have unique names:
+     To avoid collisions in the <WHERE> argument, View (like) classes must have unique names. Therefore you cannot have a “MainActivity” and a “MainFragment”, because the “Main” prefix would no longer uniquely identify one <WHERE>.
+
+     Refactoring not supported:
+     Changing class names does not change along resource names when refactoring. So if you rename “MainActivity” to “ContentActivity”, the layout “activity_main” won’t be renamed to “activity_content”. Hopefully Android Studio will one day add support for this.
+
+     Not all resource types supported:
+     The proposed scheme currently does not yet support all resource types. For some resources this is because they are less frequently used and tend to be very varied (e.g. raw and assets). For other resources this is because they are a lot harder to generalize (e.g. themes/styles/colors/animations).
+     Your apps colors palette likely wants to reuse the terminology of your design philosophy. Animations can range from modest (fade) to very exotic. Themes and styles already have a naming scheme that allows you to implicitly inherit properties.
+     *********************************************************
+  -->
+ </vector>

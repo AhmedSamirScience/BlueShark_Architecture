@@ -1,3 +1,51 @@
 <resources>
+
+    <!--
+                                      ************ naming_convention_principle for Strings ************
+
+    (naming convention URLs resources)->
+    1- https://jeroenmols.com/blog/2016/03/07/resourcenaming/
+    2- https://medium.com/mindorks/android-resource-naming-convention-42e4e8026614
+
+    <WHERE>
+    Describe where it logically belongs in the app. Resources used in multiple screens use all, all others use the custom part of the Android view subclass they are in.
+    (e.g. MainActivity -> main, ArticleDetailFragment -> articledetail)
+
+    <DESCRIPTION>
+    Differentiate multiple elements in one screen.
+    (e.g. title)
+
+    The <WHAT> part for Strings is irrelevant. So either we use <WHERE> to indicate where the string will be used:
+    <WHERE>_<DESCRIPTION>
+
+    or all if the string is reused throughout the app:
+    <all>_<DESCRIPTION>
+
+    Examples:
+    1- articledetail_title: title of ArticleDetailFragment or activity
+    2- feedback_explanation: feedback explanation in FeedbackFragment or activity
+    3- feedback_namehint: hint of name field in FeedbackFragment or activity
+    4- all_done: generic “done” string
+
+    Another examples:
+    1- main_intro
+    2- app_name
+
+    Very important note: <WHERE> obviously is the same for all resources in the same view.
+
+     *********************************************************
+     Known limitations:
+     Screens need to have unique names:
+     To avoid collisions in the <WHERE> argument, View (like) classes must have unique names. Therefore you cannot have a “MainActivity” and a “MainFragment”, because the “Main” prefix would no longer uniquely identify one <WHERE>.
+
+     Refactoring not supported:
+     Changing class names does not change along resource names when refactoring. So if you rename “MainActivity” to “ContentActivity”, the layout “activity_main” won’t be renamed to “activity_content”. Hopefully Android Studio will one day add support for this.
+
+     Not all resource types supported:
+     The proposed scheme currently does not yet support all resource types. For some resources this is because they are less frequently used and tend to be very varied (e.g. raw and assets). For other resources this is because they are a lot harder to generalize (e.g. themes/styles/colors/animations).
+     Your apps colors palette likely wants to reuse the terminology of your design philosophy. Animations can range from modest (fade) to very exotic. Themes and styles already have a naming scheme that allows you to implicitly inherit properties.
+     *********************************************************
+     -->
+
     <string name="app_name">BlueShark_Architecture</string>
 </resources>
