@@ -1,4 +1,17 @@
+/**
+ * All these blocks (e.g. plugins {}, android {}, dependencies {}, etc) are domain-specify language (DSL)
+ * implemented using trailing lambda -> (https://vtsen.hashnode.dev/what-is-trailing-lambda-and-comma-in-kotlin) and
+ * function literal with receiver -> (https://vtsen.hashnode.dev/understand-kotlin-function-literal-with-receiver-by-example)
+ */
+
 plugins {
+    /**
+     * plugins {} Block
+     * Similar to the build.gradle/.kts in the root project, this applies plugins in this module.
+     * It doesn't need to explicitly call version() because it has already been specified in the root project.
+     * apply(true) is also not needed because by default it is true.
+     */
+
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
@@ -69,6 +82,8 @@ android {
      * minSdk < targetSdk == compileSdk == latest SDK version
      *
      * Don't use @RequiresApi() and handle the different API versions' behavior in the code.
+     *
+     * Here is the reference -> https://vtsen.hashnode.dev/minsdk-vs-targetsdk-vs-compilesdk
      */
     compileSdk = ProjectConfiguration.compileSdk
 
@@ -93,6 +108,8 @@ android {
          * Installation did not succeed. The application could not be installed: INSTALL_FAILED_OLDER_SDK
          *
          * The Google Play Store prevents the user from installing the app too if the phone's Android version doesn't meet the minSdk requirement by the app.
+         *
+         * Here is the reference -> https://vtsen.hashnode.dev/minsdk-vs-targetsdk-vs-compilesdk
          */
         minSdk = ProjectConfiguration.minSdk
 
@@ -128,6 +145,7 @@ android {
          *                                                          ----------------------------------------------
          * target SDK  23    ||||   your app runs on Android version (API level 22)             ----> runtime permission is not requested.
          *
+         * Here is the reference -> https://vtsen.hashnode.dev/minsdk-vs-targetsdk-vs-compilesdk
          */
         targetSdk = ProjectConfiguration.targetSdk
 
@@ -168,15 +186,75 @@ android {
         }
     }
     compileOptions {
+        /**
+        * compileOptions {} Block -> This specifies options related to compiling your Java code.
+        */
+
+        /**
+        *  specifies the Java version that your code uses.
+        */
         sourceCompatibility = JavaVersion.VERSION_17
+
+        /**
+        * specifies the Java runtime version that your code will be executed on.
+        */
         targetCompatibility = JavaVersion.VERSION_17
     }
+
+
     kotlinOptions {
+        /**
+        * kotlinOptions {} Block
+        */
+
+        /**
+        * This specifies options related to compiling your Kotlin code.
+        *
+        * jvmTarget - specifies the Java Virtual Machine (JVM) version your code will be compiled for. In short, it compiles your code to byte code that is compatible with the JVM version that you specified.
+        * If you don't specify any compile / Kotlin options here, the default value will be used which could be different for a different version of the build Gradle plugin.
+        *
+        * Technically, JVM is for desktop app. For Android app, the runtime is called Dalvik Virtual Machine (DVM) which has been replaced by Android Runtime (ART).
+        *
+        * If you are curious about the Kotlin compilation process for Android app, you can read this article.
+        * https://vtsen.hashnode.dev/android-vs-desktop-app-kotlin-compilation-process
+        *
+        *
+        * Here is another reference : https://vtsen.hashnode.dev/android-vs-desktop-app-kotlin-compilation-process
+        */
         jvmTarget = "17"
+    }
+
+    packaging {
+        /**
+        * packagingOptions {} Block
+        * This specifies certain resources to exclude from the Android package - APK or Android bundle files.
+        */
+
+        resources {
+            /**
+            * resources - specifies the set of resources that should be processed during the packaging process
+            *
+            * In the above example, it excludes the following license files:
+            * META-INF/AL2.0
+            * META-INF/LGPL2.1
+            *
+            * The purpose is to reduce the Android package file size.
+            */
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
 dependencies {
+    /**
+     * dependencies {} Block
+     *
+     * This declares the dependencies/libraries that your code is needed.
+     * implementation - specifies the library version that should be included in the Android package (APK/ Android bundle).
+     *
+     * Note: If you have unused dependencies in your Android project, it is better to remove them. This can help reduce the size of the Android package (APK/ Android bundle) and improve build times.
+     */
+
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
