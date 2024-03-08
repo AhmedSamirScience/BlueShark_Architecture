@@ -1,4 +1,7 @@
+import dependencies.defaultLibraries
 /**
+ * ***build.gradle/build.gradle.kts (app module)***
+ *
  * All these blocks (e.g. plugins {}, android {}, dependencies {}, etc) are domain-specify language (DSL)
  * implemented using trailing lambda -> (https://vtsen.hashnode.dev/what-is-trailing-lambda-and-comma-in-kotlin) and
  * function literal with receiver -> (https://vtsen.hashnode.dev/understand-kotlin-function-literal-with-receiver-by-example)
@@ -12,8 +15,8 @@ plugins {
      * apply(true) is also not needed because by default it is true.
      */
 
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(ProjectPlugins.androidApp) //plugin to build Android app (e.g. default app module) (AGP)
+    id(ProjectPlugins.kotlinAndroid) //plugin to enable Kotlin support in your project.
 }
 
 android {
@@ -175,7 +178,6 @@ android {
             useSupportLibrary = true
         }
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -200,8 +202,6 @@ android {
         */
         targetCompatibility = JavaVersion.VERSION_17
     }
-
-
     kotlinOptions {
         /**
         * kotlinOptions {} Block
@@ -223,7 +223,6 @@ android {
         */
         jvmTarget = "17"
     }
-
     packaging {
         /**
         * packagingOptions {} Block
@@ -255,12 +254,5 @@ dependencies {
      * Note: If you have unused dependencies in your Android project, it is better to remove them. This can help reduce the size of the Android package (APK/ Android bundle) and improve build times.
      */
 
-
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    defaultLibraries()
 }
